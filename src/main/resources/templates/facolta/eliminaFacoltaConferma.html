@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Conferma eliminazione</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div>
+		<h3>Eliminazione corso : <span th:text="${fac.nomeFacolta}"></span></h3>
+		<p>Per eliminare la facolta, bisogna sceglierne una di riferimento, su cui verranno spostati tutti i corsi</p>
+		<form action="#" th:action="@{'/facolta/elimina/effettiva/' + ${fac.id}}" th:object="${facoltaScelta}" method="post">
+			<select th:field="*{id}" required>
+				<option th:each="f : ${facolta}" th:text="${f.getNomeFacolta()}" 
+						th:value="${f.getId()}"></option>
+			</select>
+			<input type="submit" value"Conferma">
+		</form>
+	</div>
+
+</body>
+</html>

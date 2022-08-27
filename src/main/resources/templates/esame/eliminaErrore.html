@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Errore eliminazione</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div>
+		<h3>Corsi con esami pari a 10 tra cui l'esame che si desidera eliminare</h3>
+			<p th:if="${numEsamiErrore}"> gli esami presenti nell'universita' sono pari a 10</p>
+			<table>
+				<thead>
+					<tr>
+						<th>Facolta</th>
+						<th>Corso</th>
+						<th>Num.Esami</th>
+						<th>Modifica</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="item: ${corsi}">
+						<td th:text="${item.getFacolta().getNomeFacolta()}"></td>
+						<td th:text="${item.getNome()}"></td>
+						<td th:text="${item.getNumEsami()}"></td>
+						<td><a th:href="@{'/corso/modifica/numesami/' + ${item.idCorso}}">Modifica</a></td>
+						<table>
+							<thead>
+								<tr>
+									<th>Esami</th>
+									<th>Professore.n1</th>
+									<th>Professore.n2</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="esame: ${item.getEsami()}">
+									<td th:text="${esame.getNome()}"></td>
+									<td th:each="item: ${esame.listaProfessori()}" th:text="${item.getNominativo}"></td>
+								</tr>
+							</tbody>
+						</table>
+					</tr>
+				</tbody>
+			</table>
+	</div>
+</body>
+</html>

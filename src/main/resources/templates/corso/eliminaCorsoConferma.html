@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Conferma eliminazione</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div>
+		<h3>Eliminazione corso : <span th:text="${corso.nome}"></span></h3>
+		<p>Per eliminare il corso, bisogna sceglierne uno di riferimento, su cui verranno spostati tutti gli studenti</p>
+		<form action="#" th:action="@{'/corso/elimina/effettiva/' + ${corso.idCorso}}" th:object="${corsoScelto}" method="post">
+			<p>Corso: </p><select th:field="*{id}" required>
+				<option th:each="corso : ${corsi}" th:text="${corso.getNome()}" 
+						th:value="${corso.getIdCorso()}"></option>
+			</select>
+			<input type="submit" value"Conferma">
+		</form>
+	</div>
+
+</body>
+</html>

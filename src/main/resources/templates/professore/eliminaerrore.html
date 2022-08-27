@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Errore eliminazione</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div>
+		<h3 th:if="${errore}">Errore nell'eliminazione, non ci sono abbastanza professori da associare agli esami</h3>
+	</div>
+
+</body>
+</html>

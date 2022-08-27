@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Form Esame</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div>
+		<h3>Aggiungi Esame</h3>
+		<form action="#" th:action="@{/esame/aggiunta}" th:object="${esame}" method="post">
+			<p>Nome esame</p><input type="text" th:field="*{nome}">
+			
+			<fieldset th:each="LongProfessoriDTO, itemStat : ${esame.getIdProfessori()}">
+				<p>Professori:</p><select th:field="*{idProfessori[__${itemStat.index}__].idProfessore}">
+					<option value=""></option>
+					<option th:each="professore : ${professori}" th:text="${professore.getNominativo()}" 
+						th:value="${professore.getMatricola()}"></option>
+				</select>
+			</fieldset>
+			<input type="submit" value"Aggiungi">
+		</form>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Conferma eliminazione</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div>
+		<h3>Si e' sicuri di voler rimuovere lo studente: <span th:text="${studente.getNominativo()}"></span> Dall'universita'?</h3>
+		<form action="#" th:action="@{'/studente/elimina/effettiva/' + ${studente.matricola}}" th:object="${studente}" method="post">
+			<input type="submit" value"Conferma">
+		</form>
+	</div>
+
+</body>
+</html>

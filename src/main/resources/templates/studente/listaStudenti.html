@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Lista studenti</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div>
+		<h3>Studenti Universita</h3>
+			<table>
+				<thead>
+					<tr>
+						<th>Matricola</th>
+						<th>Nome</th>
+						<th>Cognome</th>
+						<th>Data di N.</th>
+						<th>Email</th>
+						<th>Residenza</th>
+						<th>Corso</th>
+						<th>Modifica</th>
+						<th>Elimina</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="item: ${studenti}">
+						<td th:text="${item.getMatricola()}"></td>
+						<td th:text="${item.getNome()}"></td>
+						<td th:text="${item.getCognome()}"></td>
+						<td th:text="${item.stampaData()}"></td>
+						<td th:text="${item.getEmail()}"></td>
+						<td th:text="${item.getResidenza.getCitta().getNome()}"></td>
+						<td th:text="${item.getCorso().getNome()}"></td>
+						<td><a th:href="@{'/studente/modifica/' + ${item.matricola}}">Modifica</a></td>
+						<td><a th:href="@{'/studente/elimina/' + ${item.matricola}}">Elimina</a></td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+6;prova7;3;
+9;prova10;3;
+1;prova;3;
+14;esame;4;
+3;prova5;3;
+8;prova9;3;
+10;maiale;3;
+5;prova6;3;
+2;prova3;3;
+4;prova4;3;
+7;prova8;3;
+13;sd;3;

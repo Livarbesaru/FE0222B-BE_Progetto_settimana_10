@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Aggiunta corso</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div>
+		<h3>Aggiungi Corso</h3>
+		<form action="#" th:action="@{/corso/aggiunta}" th:object="${corso}" method="post">
+			<p>Nome corso: </p><input type="text" th:field="*{nome}">
+			<p>Facolta: </p><select th:field="*{idFacolta}">
+				<option th:each="item: ${facolta}" th:text="${item.getNomeFacolta()}" 
+						th:value="${item.getId()}"></option>
+			</select>
+			<p>Esami: </p><fieldset th:each="LongEsamiDTO, itemStat : ${corso.getIdEsami()}">
+				<select th:field="*{idEsami[__${itemStat.index}__].idEsame}">
+					<option th:each="esame : ${esami}" th:text="${esame.getNome()}" 
+						th:value="${esame.getId()}"></option>
+				</select>
+			</fieldset>
+			<input type="submit" value"Aggiungi">
+		</form>
+	</div>
+
+</body>
+</html>

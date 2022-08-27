@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Errori Professore</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div>
+		<h3>Possibili errori nella compilazione</h3>
+		<ul>
+			<li th:if="${nome}"><span>Il nome deve avere lunghezza minima 2</span></li>
+			<li th:if="${cognome}"><span>Il cognome deve avere lunghezza minima 2</span></li>
+			<li th:if="${data}"><span>la data non deve essere nulla</span></li>
+			<li th:if="${email}"><span>l'email deve avere lunghezza minima 5</span></li>
+			<li th:if="${citta}"><span>il comune deve essere definito</span></li>
+			<li th:if="${via}"><span>la via deve essere definita</span></li>
+			<!--<span th:if="${#fields.hasErrors('studente')}" th:errors="*{via}"> non funziona come previsto da traccia,
+			in quanto nella lista di errori rilevati dal @Valid, molti errori che vengono rilevati correttamente,
+			non vengono poi aggiunti, cosi in fasi di lettura sul file html, il th:if non si attiva-->
+		</ul>
+	</div>
+</body>
+</html>

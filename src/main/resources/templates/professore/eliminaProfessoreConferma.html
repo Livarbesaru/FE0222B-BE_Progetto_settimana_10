@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Conferma eliminazione</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div>
+		<h3>Eliminazione professore : <span th:text="${prof.getNominativo()}"></span></h3>
+		<p>Per eliminare il professore, bisogna sceglierne uno di riferimento, su cui verranno spostati tutti esami</p>
+		<form action="#" th:action="@{'/professore/elimina/effettiva/' + ${prof.matricola}}" th:object="${professoreScelto}" method="post">
+			<select th:field="*{id}" required>
+				<option th:each="p : ${professori}" th:text="${p.getNominativo()}" 
+						th:value="${p.getMatricola()}"></option>
+			</select>
+			<input type="submit" value"Conferma">
+		</form>
+	</div>
+
+</body>
+</html>

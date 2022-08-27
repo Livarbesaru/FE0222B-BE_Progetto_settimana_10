@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Form errori esami</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div>
+		<h3>Possibili errori nella compilazione</h3>
+		<ul>
+			<li th:if="${esameNome}"><span>L'esame deve avere un nome lungo almeno 5 caratteri</span></li>
+			<li th:if="${esame0}"><span>L'esame deve avere almeno un professore'</span></li>
+			<li th:if="${esameLunghezza}"><span> se l'esame deve avere due professori, allora questi devono essre differenti</span></li>
+		</ul>
+	</div>
+</body>
+</html>

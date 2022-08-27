@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Aggiungi Facolta</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+	<div>
+		<h3>Aggiungi Facolta</h3>
+		<form action="#" th:action="@{/facolta/aggiunta}" th:object="${facolta}" method="post">
+			<p>Nome facolta</p><input type="text" th:field="*{nomeFacolta}">
+			<input type="submit" value"Add order">
+		</form>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Scelta numero esami</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div>
+		<h3>Aggiungi Corso: quantita' esami</h3>
+		<form action="#" th:action="@{/corso/formaggiunta}" th:object="${numEsami}" method="post">
+			<p>Num.Esami</p><select th:field="*{id}">
+				<option th:each="item : ${items}" th:text="${item.getId()}" th:value="${item.getId()}"></option>
+			</select>
+			<input type="submit" value"Add order">
+		</form>
+	</div>
+
+</body>
+</html>

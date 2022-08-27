@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Form errori esami</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div>
+		<h3>Possibili errori nella compilazione</h3>
+		<ul>
+			<li th:if="${corsoEsami}"><span>Il corso deve avere almeno 10 esami differenti</span></li>
+			<li th:if="${corsoNome}"><span>Il corso deve avere un nome lungo almeno 2 caratteri</span></li>
+		</ul>
+	</div>
+</body>
+</html>

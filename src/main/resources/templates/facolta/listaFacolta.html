@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<title>Lista facolta</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+	<div>
+		<h3>Lista Facolta</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>Facolta</th>
+					<th>Modifica</th>
+					<th>Elimina</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="fac: ${facolta}">
+					<td th:text="${fac.getNomeFacolta()}"></td>
+					<td><a th:href="@{'/facolta/modifica/' + ${fac.id}}">Modifica</a></td>
+					<td><a th:href="@{'/facolta/elimina/' + ${fac.id}}">Elimina</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>

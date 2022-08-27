@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<title>Lista esami</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div>
+		<h3>Lista esami</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>Esami</th>
+					<th>Professore n.1</th>
+					<th>Professore n.2 (eventuale)</th>
+					<th>Modifica</th>
+					<th>Elimina</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="esame: ${esami}">
+					<td th:text="${esame.getNome()}"></td>
+					<td th:each="item: ${esame.listaProfessori()}" th:text="${item.getNominativo}"></td>
+					<td><a th:href="@{'/esame/modifica/' + ${esame.getId()}}">Modifica</a></td>
+					<td><a th:href="@{'/esame/elimina/' + ${esame.getId()}}">Elimina</a></td>
+				</tr>
+				<tr th:each="esame: ${esami}"></tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>
